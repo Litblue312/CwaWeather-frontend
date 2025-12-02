@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>森森天氣</title>
+    <title>楓音の天氣預報</title>
     <link rel="icon" type="image/png" href="./icon-v2.png">
     <link rel="apple-touch-icon" href="./icon-v2.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./icon-v2.png">
@@ -35,16 +35,17 @@
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             background-color: var(--ac-green);
-            /* 更細緻的斜紋背景 */
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.2) 20px, rgba(255, 255, 255, 0.2) 40px);
-            min-height: 100vh;
-            color: var(--ac-dark);
+            /* 背景圖滿版置中 */
+            background:
+                url("bg.png")
+                no-repeat center center fixed;
+            background-size: cover;
+            
             /* 防止 iOS 左右滑動 */
             overflow-x: hidden;
             padding-bottom: 20px;
         }
-
+ 
         /* 頂部狀態列 */
         .status-bar {
             display: flex;
@@ -261,7 +262,7 @@
 <body>
     <div id="loading" class="loading-screen">
         <div style="font-size: 4rem; animation: bounce 2s infinite;">☁️</div>
-        <p style="color: white; font-weight: bold; margin-top: 20px;">正在觀測雲的流動...</p>
+        <p style="color: white; font-weight: bold; margin-top: 20px;">台南地頭蛇觀測天空ing...</p>
     </div>
     <div class="status-bar">
         <div class="location-pill">📍 台南</div>
@@ -294,10 +295,10 @@
 
         function getAdvice(rainProb, maxTemp) {
             let rainIcon = "🌂";
-            let rainText = "不用帶傘";
+            let rainText = "傘可以丟了";
             if (parseInt(rainProb) > 30) {
                 rainIcon = "☂️";
-                rainText = "記得帶傘！";
+                rainText = "帶傘阿~葛！";
             }
 
             let clothIcon = "👕";
@@ -415,7 +416,7 @@
                 }
             } catch (e) {
                 console.error(e);
-                alert("天氣資料讀取失敗，狸克把網路線咬斷了！");
+                alert("天氣資料讀取失敗，柴犬把網路線咬斷了！");
             }
         }
 
